@@ -1,7 +1,4 @@
 {
   "name": "MultiCoinCalc",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "4.0.0"
-  }
+  "private": true
 }
