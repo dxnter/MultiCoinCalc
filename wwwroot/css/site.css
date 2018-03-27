@@ -1,1 +1,15 @@
-/*Write all of your CSS here*/
+html * {
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+  margin-bottom: 50px;
+}
+
+.brand-logo {
+  margin-left: 12px;
+  font-weight: 600;
+}
+.material-icons {
+  color: black;
+}

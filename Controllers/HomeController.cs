@@ -1,54 +1,29 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-// my using statements
 using System.Linq;
-using MultiCoinCalc.Models;
-using MultiCoinCalc.Factory;
-using MultiCoinCalc.ActionFilters;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Newtonsoft.Json;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
+using MultiCoinCalc.ActionFilters;
+using MultiCoinCalc.Factory;
+using MultiCoinCalc.Models;
+using Newtonsoft.Json;
 
-
-namespace MultiCoinCalc.Controllers
-{
-    public class HomeController : Controller
-    {
-        // ########## ROUTES ##########
-        //  /
-        //  /(add_routes_guide)
-        //  /
-        // ########## ROUTES ##########
-
-        // Dapper connections
-        // private readonly UserFactory userFactory;
-        // private readonly DbConnector _dbConnector;
-
-        // Entity PostGres Code First connection
+namespace MultiCoinCalc.Controllers {
+    public class HomeController : Controller {
         private MultiCoinCalcContext _context;
 
-        public HomeController(MultiCoinCalcContext context)
-        {
-            // Dapper framework connections
-            // _dbConnector = connect;
-            // userFactory = new UserFactory();
+        public HomeController(MultiCoinCalcContext context) => _context = context;
 
-            // Entity Framework connections
-            _context = context;
-        }
-
-        // GET: /Home/
         [HttpGet]
         [Route("")]
         [ImportModelState]
-        public IActionResult Index()
-        {
+        public IActionResult Index() {
             return View();
         }
 
