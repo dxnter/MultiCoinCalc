@@ -8,11 +8,15 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
 <body>
     <nav>
         <div class="nav-wrapper grey lighten-5">
-        <a href="/" class="brand-logo center grey-text text-darken-4"><span class="green-text">M</span>ulti<span class="green-text">C</span>oin<span class="green-text">C</span>alc</a>
+        <a href="/" class="brand-logo center grey-text text-darken-4">Multi<span class="green-text">Coin</span>Calc</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="/register" class="waves-effect waves-light btn green">Register</a></li>
@@ -22,17 +26,13 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="/register">Javascript</a></li>
-        <li><a href="/login">Mobile</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
     </ul>
 
     <div class="body-content">
         @RenderBody()
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

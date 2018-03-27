@@ -13,3 +13,8 @@ nav {
 .material-icons {
   color: black;
 }
+
+.row {
+  margin: 0 auto;
+}
+
