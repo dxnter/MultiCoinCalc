@@ -20,9 +20,9 @@ async function calculatePrice() {
   const inputCoinTicker = document.getElementById('inputCoinTicker').value;
   const inputCurrency = document.getElementById('inputCurrency').value;
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
-  if (!inputQuantity || !inputCoinTicker || !inputCurrency) return;
   const { USD, GBP, EUR, JPY, CNY } = await fetchCoinPrices(inputCoinTicker);
   let currencySymbol = '';
+  if (!inputQuantity || !inputCoinTicker || !inputCurrency) return;
   switch (inputCurrency) {
   case 'USD':
     currencySymbol = '$';
