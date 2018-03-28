@@ -5,20 +5,3 @@ html * {
 nav {
   margin-bottom: 50px;
 }
-
-.brand-logo {
-  margin-left: 12px;
-  font-weight: 600;
-}
-.material-icons {
-  color: black;
-}
-
-.row {
-  margin: 0 auto;
-}
-
-input[type=text]:focus {
-      border-bottom: 1px solid #4caf50 !important;
-      box-shadow: 0 1px 0 0 #000;
-}

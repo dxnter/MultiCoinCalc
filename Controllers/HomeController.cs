@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using MultiCoinCalc.ActionFilters;
-using MultiCoinCalc.Factory;
 using MultiCoinCalc.Models;
 using Newtonsoft.Json;
 
