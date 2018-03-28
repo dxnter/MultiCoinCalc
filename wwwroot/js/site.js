@@ -1,106 +1,47 @@
-$(document).ready(() => {
-  $('input.autocomplete').autocomplete({
-    data: {
-      Bitcoin: null,
-      Ethereum: null,
-      Ripple: null,
-      'Bitcoin Cash': null,
-      Litecoin: null,
-      EOS: null,
-      Cardano: null,
-      Stellar: null,
-      NEO: null,
-      IOTA: null,
-      Monero: null,
-      Dash: null,
-      TRON: null,
-      Tether: null,
-      NEM: null,
-      'Ethereum Classic': null,
-      VeChain: null,
-      Qtum: null,
-      'Binance Coin': null,
-      ICON: null,
-      Lisk: null,
-      OmiseGO: null,
-      'Bitcoin Gold': null,
-      Nano: null,
-      Zcash: null,
-      DigixDAO: null,
-      Verge: null,
-      Populous: null,
-      Ontology: null,
-      Siacoin: null,
-      Steem: null,
-      Stratis: null,
-      Bytecoin: null,
-      Waves: null,
-      'Bitcoin Diamond': null,
-      RChain: null,
-      BitShares: null,
-      Bytom: null,
-      Maker: null,
-      Aeternity: null,
-      Dodgecoin: null,
-      Augur: null,
-      '0x': null,
-      Veritaseum: null,
-      Decred: null,
-      Waltonchain: null,
-      Status: null,
-      Zilliqa: null,
-      Komodo: null,
-      Aion: null,
-      Hshare: null,
-      Ardor: null,
-      Ark: null,
-      Cryptonex: null,
-      'Basic Attention Token': null,
-      PIVX: null,
-      Loopring: null,
-      'KuCoin Shares': null,
-      Factom: null,
-      Nebulas: null,
-      DigiByte: null,
-      Ethos: null,
-      QASH: null,
-      IOStoken: null,
-      MonaCoin: null,
-      Golem: null,
-      Gas: null,
-      Dragonchain: null,
-      FunFair: null,
-      Revain: null,
-      GXChain: null,
-      Electroneum: null,
-      Syscoin: null,
-      Storm: null,
-      'Kyber Network': null,
-      aelf: null,
-      Zcoin: null,
-      'Request Network': null,
-      Substratum: null,
-      SALT: null,
-      Neblio: null,
-      Kin: null,
-      Nxt: null,
-      ReddCoin: null,
-      'Nucleus Vision': null,
-      Emercoin: null,
-      Enigma: null,
-      'Byteball Bytes': null,
-      ChainLink: null,
-      MaidSafeCoin: null,
-      'Power Ledger': null,
-      TenX: null,
-      Dentacoin: null,
-      Dent: null,
-      Mithril: null,
-      Bancor: null,
-      Cindicator: null,
-      Metal: null,
-      Nuls: null,
-      Particl: null,
-    },
-  });
-});
+M.AutoInit();
+
+/**
+ * Fetches [USD,GBP,EUR,JPY,CNY] prices of the coinTicker paramater with the CryptoCompare API.
+ * @param {String} coinTicker
+ * @returns An object with key value pairs of currency abbreviations and exchanged price/coin.
+ */
+async function fetchCoinPrices(coinTicker) {
+  const priceQuery = await fetch(
+    `https://min-api.cryptocompare.com/data/price?fsym=${coinTicker}&tsyms=USD,GBP,EUR,JPY,CNY`
+  );
+  const pricesResponse = await priceQuery.json();
+  return pricesResponse;
+}
+
+/**
+ * Calculates the price per coin * input quantity and updates the DOM input element.
+ */
+async function calculatePrice() {
+  const inputCoinTicker = document.getElementById('inputCoinTicker').value;
+  const inputCurrency = document.getElementById('inputCurrency').value;
+  const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
+  if (!inputQuantity || !inputCoinTicker || !inputCurrency) return;
+  const { USD, GBP, EUR, JPY, CNY } = await fetchCoinPrices(inputCoinTicker);
+  let currencySymbol = '';
+  switch (inputCurrency) {
+  case 'USD':
+    currencySymbol = '$';
+    break;
+  case 'GBP':
+    currencySymbol = '£';
+    break;
+  case 'EUR':
+    currencySymbol = '€';
+    break;
+  case 'JPY':
+  case 'CNY':
+    currencySymbol = '¥';
+    break;
+  default:
+    break;
+  }
+  const calculatedTotal = eval(inputCurrency) * inputQuantity;
+  document.getElementById('fiatValue').value = Number(calculatedTotal).toLocaleString();
+  document.getElementById('currencySymbol').innerHTML = currencySymbol;
+  console.log(`${inputQuantity} ${inputCoinTicker} is ${currencySymbol}${Number(calculatedTotal).toLocaleString()}`);
+}
