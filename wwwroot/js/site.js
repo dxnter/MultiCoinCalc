@@ -14,15 +14,15 @@ async function fetchCoinPrices(coinTicker) {
 }
 
 /**
- * Calculates the price per coin * input quantity and updates the DOM input element.
+ * Finds the product of the price per coin and input quantity and updates the DOM input element.
  */
 async function calculatePrice() {
   const inputCoinTicker = document.getElementById('inputCoinTicker').value;
   const inputCurrency = document.getElementById('inputCurrency').value;
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
-  const { USD, GBP, EUR, JPY, CNY } = await fetchCoinPrices(inputCoinTicker);
-  let currencySymbol = '';
+  const { USD, GBP, EUR, JPY, CNY } = await fetchCoinPrices(inputCoinTicker.toUpperCase());
   if (!inputQuantity || !inputCoinTicker || !inputCurrency) return;
+  let currencySymbol = '';
   switch (inputCurrency) {
   case 'USD':
     currencySymbol = '$';
@@ -45,3 +45,13 @@ async function calculatePrice() {
   document.getElementById('currencySymbol').innerHTML = currencySymbol;
   console.log(`${inputQuantity} ${inputCoinTicker} is ${currencySymbol}${Number(calculatedTotal).toLocaleString()}`);
 }
+
+$(document).ready(() => {
+  $('input.autocomplete').autocomplete({
+    data: {
+      Apple: null,
+      Microsoft: null,
+      Google: 'https://placehold.it/250x250',
+    },
+  });
+});

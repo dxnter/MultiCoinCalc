@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m6 l6 xl3" id="userInput">
-        <label>Coin Name</label>
-        <input onkeyup="calculatePrice()" type="text" id="inputCoinTicker">
-        <br>
-        <label>Coin Quantity</label>
-        <input onkeyup="calculatePrice()" type="text" id="inputQuantity">
-        <br>
+        <div class="input-field">
+          <input onkeyup="calculatePrice()" type="text" id="inputCoinTicker" class="autocomplete">
+          <label for="inputCoinTicker">Coin Name</label>
+        </div>
+        <div class="input-field">
+          <input onkeyup="calculatePrice()" type="text" id="inputQuantity">
+          <label for="inputQuantity">Coin Quantity</label>
+        </div>
         <div class="input-field">
           <select onchange="calculatePrice()" id="inputCurrency">
             <option value="USD">USD</option>
@@ -15,7 +17,7 @@
             <option value="JPY">JPY</option>
             <option value="CNY">CNY</option>
           </select>
-          <label>Currency</label>
+          <label for="inputCurrency">Currency</label>
         </div>
         <div class="input-field">
           <div class="prefix" id="currencySymbol"></div>
