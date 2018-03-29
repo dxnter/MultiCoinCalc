@@ -2,6 +2,38 @@ html * {
   font-family: 'Montserrat', sans-serif;
 }
 
+h2 {
+  font-weight: 900;
+  color: #1c1c1c;
+}
+
+h5 {
+  color: #333333;
+  font-weight: 600;
+}
 nav {
   margin-bottom: 50px;
+  padding: 20px;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: minmax(200px, max-content);
+  grid-gap: 30px;
+  padding: 15px;
+}
+
+.card-img-top {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: fill !important;
+}
+
+.navbar-brand{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin:0 auto;
 }

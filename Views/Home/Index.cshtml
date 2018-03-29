@@ -1,22 +1,24 @@
 <div class="container">
   <div class="row text-center justify-content-center">
-    <div class="col-sm-8 col-lg-4">
-      <div class="card">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+      <div class="card box-shadow">
         <div class="card-body">
-          <div class="form-group">
-            <input onkeyup="calculatePrice()" id="inputCoinName" type="text" class="form-control form-control-lg awesomplete" placeholder="Coin Name">
-          </div>
-          <div class="form-group">
-            <input onkeyup="calculatePrice()" id="inputQuantity" type="number" class="form-control form-control-lg" placeholder="Quantity">
+          <div class="form-row">
+            <div class="form-group col">
+              <input onkeyup="calculatePrice()" id="inputCoinName" type="text" class="form-control form-control-lg awesomplete" placeholder="Coin Name">
+            </div>
+            <div class="form-group col">
+              <input onkeyup="calculatePrice()" id="inputQuantity" type="number" class="form-control form-control-lg" placeholder="Quantity">
+            </div>
           </div>
           <div class="input-group">
             <div class="input-group-prepend pr-1">
               <select onchange="calculatePrice()" id="inputCurrency" class="form-control form-control-lg">
-                <option value="USD">USD $</option>
-                <option value="GBP">GBP £</option>
-                <option value="EUR">EUR €</option>
-                <option value="JPY">JPY ¥</option>
-                <option value="CNY">CNY ¥</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+                <option value="CNY">CNY</option>
               </select>
             </div>
             <input id="fiatValue" type="text" class="form-control form-control-lg" placeholder="Value" readonly>
@@ -25,5 +27,65 @@
         </div>
       </div>
     </div>
-  </div>
+
+
+    <!-- News Feed -->
+    <div class="row justify-content-center mt-5">
+      <div id="grid">
+        <div class="card">
+          <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/8cP9Y0ecP38.png">
+          <div class="card-body">
+            <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
+            <h6 class=" text-muted card-subtitle mb-3">Coindesk</h6>
+            <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe 2018 #BLOCKSHOW</p>
+            <a href="/">Continue reading...</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/8cP9Y0ecP38.png">
+          <div class="card-body">
+            <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
+            <h6 class="card-subtitle mb-3 text-muted">Coindesk</h6>
+            <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe 2018 #BLOCKSHOW</p>
+            <a href="/">Continue reading...</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="https://images.cryptocompare.com/news/ccn/cb04000Aww0.jpeg">
+          <div class="card-body">
+            <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
+            <h6 class="card-subtitle mb-3 text-muted">Coindesk</h6>
+            <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe 2018 #BLOCKSHOW</p>
+            <a href="/">Continue reading...</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/8cP9Y0ecP38.png">
+          <div class="card-body">
+            <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
+            <h6 class="card-subtitle mb-3 text-muted">Coindesk</h6>
+            <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe 2018 #BLOCKSHOW</p>
+            <a href="/">Continue reading...</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/9t82$xG3mGA.jpeg">
+          <div class="card-body">
+            <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
+            <h6 class="card-subtitle mb-3 text-muted">Coindesk</h6>
+            <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe 2018 #BLOCKSHOW</p>
+            <a href="/">Continue reading...</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/9t82$xG3mGA.jpeg">
+          <div class="card-body">
+            <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
+            <h6 class="card-subtitle mb-3 text-muted">Coindesk</h6>
+            <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe 2018 #BLOCKSHOW</p>
+            <a href="/">Continue reading...</a>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

@@ -11,7 +11,6 @@ async function fetchCoinPrices(coinTicker) {
   return pricesResponse;
 }
 
-
 /**
  *  Response properties
  * "total_market_cap_usd"
@@ -24,17 +23,11 @@ async function fetchCoinPrices(coinTicker) {
  *
  * @returns An object containing global cryptocurrency information
  */
-async function fetchGlobalMarketCap() {
-  const marketCapQuery = await fetch(`https://api.coinmarketcap.com/v1/global/`);
-  const marketCapResponse = await marketCapQuery.json();
-  return marketCapResponse;
+async function fetchGlobalMarketData() {
+  const globalQuery = await fetch(`https://api.coinmarketcap.com/v1/global/`);
+  const marketData = await globalQuery.json();
+  return marketData;
 }
-
-/** On page load the global market cap is fetched and updated on the page */
-window.onload = async function() {
-  const { total_market_cap_usd } = await fetchGlobalMarketCap();
-  document.getElementById('marketCap').innerHTML = `$${total_market_cap_usd.toLocaleString()}`;
-};
 
 /**
  * Finds the product of the price per coin and input quantity then updates the DOM input element.
@@ -64,7 +57,9 @@ async function calculatePrice() {
     break;
   }
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
-  document.getElementById('fiatValue').value = Number(calculatedTotal).toLocaleString();
+  document.getElementById('fiatValue').value = `${currencySymbol}${Number(calculatedTotal).toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+  })}`;
 }
 
 const input = document.getElementById('inputCoinName');
