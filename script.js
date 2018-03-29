@@ -72,6 +72,11 @@ async function calculatePrice() {
   default:
     break;
   }
+  /**
+   * eval(inputCurrency) will be interpreted as the *variable* that
+   * was destructured from the API response on #53 which evaluates
+   * to the price of one coin in a specific fiat currency. (ex: USD = 45.44)
+   */
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
   document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
     undefined,
@@ -81,9 +86,6 @@ async function calculatePrice() {
   )}`;
 }
 
-/**
- * On page load calculate the price of the defaul values in the calculator input; BTC and 1
- */
 window.onload = function() {
   calculatePrice();
   fetchNewsArticles();
