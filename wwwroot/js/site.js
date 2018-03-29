@@ -38,7 +38,7 @@ async function calculatePrice() {
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
   const { USD, GBP, EUR, JPY, CNY } = await fetchCoinPrices(inputCoinName.toUpperCase());
   if (!inputQuantity || !inputCoinName || !inputCurrency) {
-    document.getElementById('fiatValue').value = '';
+    document.getElementById('fiatValue').innterHTML = '';
   }
   let currencySymbol = '';
   switch (inputCurrency) {
@@ -59,14 +59,25 @@ async function calculatePrice() {
     break;
   }
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
-  document.getElementById('fiatValue').value = `${currencySymbol}${Number(calculatedTotal).toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-  })}`;
+  document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
+    undefined,
+    {
+      minimumFractionDigits: 2,
+    }
+  )}`;
 }
+
+/**
+ * On page load calculate the price of the defaul values in the calculator input; BTC and 1
+ */
+window.onload = function() {
+  calculatePrice();
+};
 
 const input = document.getElementById('inputCoinName');
 
 new Awesomplete(input, {
+  autoFirst: true,
   list: [
     { label: 'Bitcoin', value: 'BTC' },
     { label: 'Ethereum', value: 'ETH' },

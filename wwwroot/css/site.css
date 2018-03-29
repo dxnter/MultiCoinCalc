@@ -9,6 +9,7 @@ html * {
 
 .container {
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 h2 {
   font-weight: 900;
@@ -20,8 +21,12 @@ h2 > span {
 }
 
 h5 {
-  color: #333333;
+  color: orange;
   font-weight: 600;
+}
+
+h6 {
+  color: #2b6d91 !important;
 }
 nav {
   padding: 20px;
@@ -40,7 +45,10 @@ a {
 input,
 select {
   border-radius: 0 !important;
-  border: none !important;
+  border-bottom: 2px solid orange !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
 }
 
 .form-control:focus{
@@ -53,13 +61,14 @@ select {
   color: #0c0;
   font-weight: 600;
   font-size: 1.5em;
+  overflow: hidden;
 }
 
 #grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: minmax(200px, max-content);
-  grid-gap: 30px;
+  grid-gap: 50px;
   padding: 15px;
 }
 
@@ -80,4 +89,17 @@ select {
 .card {
   border-radius: 0;
   border: none;
+}
+
+.awesomplete > ul {
+  border-radius: 0 !important;
+  border: 1px solid orange;
+  background: white;
+  font-size: 22px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
