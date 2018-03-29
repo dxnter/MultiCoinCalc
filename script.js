@@ -3,14 +3,21 @@
  * @param {String} coinTicker
  * @returns An object with key value pairs of currency abbreviations and exchanged price/coin.
  */
-async function fetchCoinPrices(coinTicker) {
-  const priceQuery = await fetch(
+async function fetchPrices(coinTicker) {
+  const prices = await fetch(
     `https://min-api.cryptocompare.com/data/price?fsym=${coinTicker}&tsyms=USD,GBP,EUR,JPY,CNY`
   );
-  const pricesResponse = await priceQuery.json();
+  const pricesResponse = await prices.json();
   return pricesResponse;
 }
 
+/**
+ * Fetches six of the latest news articles relating to cryptocurrency.
+ * Since our firstSixArticles array is zero indexed we utilize that by
+ * incrementally giving each DOM element that index. (ex: id="title2")
+ * With the ID binding the function will insert the data inside the
+ * DOM elements.
+ */
 async function fetchNewsArticles() {
   const newsQuery = await fetch(`https://min-api.cryptocompare.com/data/news/?lang=EN`);
   const newsArticles = await newsQuery.json();
@@ -28,12 +35,14 @@ async function fetchNewsArticles() {
     const articleSource = document.querySelector(`[id=source${CSS.escape(i)}]`);
     articleSource.innerHTML = `${firstSixArticles[i].source_info.name}`;
 
+    // The DOM element has an ID of content but the API resposne property is named 'body'
     const articleContent = document.querySelector(`[id=content${CSS.escape(i)}]`);
     const trimmedArticle = `${firstSixArticles[i].body.substring(0, 200)}.....`;
     articleContent.innerHTML = `${trimmedArticle}`;
   }
   return firstSixArticles;
 }
+
 /**
  * Finds the product of the price per coin and input quantity then updates the DOM input element.
  */
@@ -41,7 +50,7 @@ async function calculatePrice() {
   const inputCoinName = document.getElementById('inputCoinName').value;
   const inputCurrency = document.getElementById('inputCurrency').value;
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
-  const { USD, GBP, EUR, JPY, CNY } = await fetchCoinPrices(inputCoinName.toUpperCase());
+  const { USD, GBP, EUR, JPY, CNY } = await fetchPrices(inputCoinName.toUpperCase());
   if (!inputQuantity || !inputCoinName || !inputCurrency) {
     document.getElementById('fiatValue').innterHTML = '';
   }
