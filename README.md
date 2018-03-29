@@ -2,10 +2,13 @@
 > Instant crypto to fiat <small>(USD, GBP, EUR, JPY, CNY)</small> price calculations 💰
 
 **Features**
+- Predictive coin list search and quick conversions in multiple fiat currencies
+- Fully mobile responsive
+- Displays six of the latest news articles about cryptocurrencies from multiple sources.
 
 
 **Li₿raries**
-
+- [Awesomplete](https://leaverou.github.io/awesomplete/)
 ---
 
 ## Team
