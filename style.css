@@ -71,15 +71,15 @@ select {
 #grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: minmax(200px, max-content);
+  grid-template-rows: minmax(100px, max-content);
   grid-gap: 50px;
   padding: 15px;
 }
 
 .card-img-top {
   width: 100% !important;
-  height: 200px !important;
-  object-fit: fill !important;
+  height: max-content !important;
+  object-fit: cover !important;
 }
 
 .navbar-brand{

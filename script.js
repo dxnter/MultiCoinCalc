@@ -18,12 +18,16 @@ async function fetchNewsArticles() {
   for (let i = 0; i < firstSixArticles.length; i++) {
     const articleImage = document.querySelector(`[id=image${CSS.escape(i)}]`);
     articleImage.src = `${firstSixArticles[i].imageurl}`;
+
     const articleLink = document.querySelector(`[id=url${CSS.escape(i)}]`);
     articleLink.href = `${firstSixArticles[i].url}`;
+
     const articleTitle = document.querySelector(`[id=title${CSS.escape(i)}]`);
     articleTitle.innerHTML = `${firstSixArticles[i].title}`;
+
     const articleSource = document.querySelector(`[id=source${CSS.escape(i)}]`);
     articleSource.innerHTML = `${firstSixArticles[i].source_info.name}`;
+
     const articleContent = document.querySelector(`[id=content${CSS.escape(i)}]`);
     const trimmedArticle = `${firstSixArticles[i].body.substring(0, 200)}.....`;
     articleContent.innerHTML = `${trimmedArticle}`;
@@ -43,21 +47,21 @@ async function calculatePrice() {
   }
   let currencySymbol = '';
   switch (inputCurrency) {
-  case 'USD':
-    currencySymbol = '$';
-    break;
-  case 'GBP':
-    currencySymbol = '£';
-    break;
-  case 'EUR':
-    currencySymbol = '€';
-    break;
-  case 'JPY':
-  case 'CNY':
-    currencySymbol = '¥';
-    break;
-  default:
-    break;
+    case 'USD':
+      currencySymbol = '$';
+      break;
+    case 'GBP':
+      currencySymbol = '£';
+      break;
+    case 'EUR':
+      currencySymbol = '€';
+      break;
+    case 'JPY':
+    case 'CNY':
+      currencySymbol = '¥';
+      break;
+    default:
+      break;
   }
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
   document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
@@ -71,7 +75,7 @@ async function calculatePrice() {
 /**
  * On page load calculate the price of the defaul values in the calculator input; BTC and 1
  */
-window.onload = function() {
+window.onload = function () {
   calculatePrice();
   fetchNewsArticles();
 };
