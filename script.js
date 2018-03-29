@@ -86,16 +86,6 @@ async function calculatePrice() {
   )}`;
 }
 
-let first = document.getElementById('inputCoinName'),
-  second = document.getElementById('inputCoinQuantity');
-
-first.onkeydown = function(e) {
-  if (e.keyCode === 9) {
-    second.focus();
-    e.preventDefault();
-  }
-};
-
 window.onload = function() {
   calculatePrice();
   fetchNewsArticles();
