@@ -36,7 +36,7 @@
             <div class="card-body">
               <div class="form-row">
                 <div class="form-group col">
-                  <input onkeyup="calculatePrice()" id="inputCoinName" type="text" value="BTC" class="form-control form-control-lg text-center awesomplete"
+                  <input onchange="calculatePrice()" id="inputCoinName" type="text" value="BTC" class="form-control form-control-lg text-center awesomplete"
                     placeholder="Coin Name">
                 </div>
                 <div class="form-group col">
@@ -67,58 +67,52 @@
       <!-- News Feed -->
       <div class="row justify-content-center mt-5">
         <div id="grid">
-          <div class="card">
-            <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/8cP9Y0ecP38.png">
+          <div id="0" class="card">
+            <img id="image0" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
-              <h6 class=" card-subtitle mb-3">Coindesk</h6>
-              <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe
-                2018 #BLOCKSHOW</p>
+              <a id="url0"href="" target="_blank"><h5 id="title0" class="card-title"></h5></a>
+              <h6 id="source0" class=" card-subtitle mb-3"></h6>
+              <p id="content0"></p>
             </div>
           </div>
-          <div class="card">
-            <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/8cP9Y0ecP38.png">
+          <div id="1" class="card">
+            <img id="image1" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
-              <h6 class="card-subtitle mb-3">Coindesk</h6>
-              <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe
-                2018 #BLOCKSHOW</p>
+              <a id="url1" href="" target="_blank"><h5 id="title1" class="card-title"></h5></a>
+              <h6 id="source1" class=" card-subtitle mb-3"></h6>
+              <p id="content1"></p>
             </div>
           </div>
-          <div class="card">
-            <img class="card-img-top" src="https://images.cryptocompare.com/news/ccn/cb04000Aww0.jpeg">
+          <div id="2" class="card">
+            <img id="image2" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
-              <h6 class="card-subtitle mb-3">Coindesk</h6>
-              <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe
-                2018 #BLOCKSHOW</p>
+              <a id="url2" href="" target="_blank"><h5 id="title2" class="card-title"></h5></a>
+              <h6 id="source2" class=" card-subtitle mb-3"></h6>
+              <p id="content2"></p>
             </div>
           </div>
-          <div class="card">
-            <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/8cP9Y0ecP38.png">
+          <div id="3" class="card">
+            <img id="image3" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
-              <h6 class="card-subtitle mb-3">Coindesk</h6>
-              <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe
-                2018 #BLOCKSHOW</p>
+              <a id="url3" href="" target="_blank"><h5 id="title3" class="card-title"></h5></a>
+              <h6 id="source3" class=" card-subtitle mb-3"></h6>
+              <p id="content3"></p>
             </div>
           </div>
-          <div class="card">
-            <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/9t82$xG3mGA.jpeg">
+          <div id="4" class="card">
+            <img id="image4" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
-              <h6 class="card-subtitle mb-3">Coindesk</h6>
-              <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe
-                2018 #BLOCKSHOW</p>
+              <a id="url4" href="" target="_blank"><h5 id="title4" class="card-title"></h5></a>
+              <h6 id="source4" class=" card-subtitle mb-3"></h6>
+              <p id="content4"></p>
             </div>
           </div>
-          <div class="card">
-            <img class="card-img-top" src="https://images.cryptocompare.com/news/themerkle/9t82$xG3mGA.jpeg">
+          <div id="5" class="card">
+            <img id="image5" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Ethereum Bleed Continues, Price Drops Below $450</h5>
-              <h6 class="card-subtitle mb-3">Coindesk</h6>
-              <p>Iconiq Lab will soon launch two new branches in New York and Singapore, keeping more news for BlockShow Europe
-                2018 #BLOCKSHOW</p>
+              <a id="url5" href="" target="_blank"><h5 id="title5" class="card-title"></h5></a>
+              <h6 id="source5" class=" card-subtitle mb-3"></h6>
+              <p id="content5"></p>
             </div>
           </div>
         </div>
@@ -128,7 +122,7 @@
     </div>
 
   </div>
-  <script src="script.js"></script>
+  <script async src="script.js"></script>
 </body>
 
 </html>

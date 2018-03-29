@@ -1,5 +1,5 @@
 /**
- * Fetches [USD,GBP,EUR,JPY,CNY] prices of the coinTicker paramater with the CryptoCompare API.
+ * Fetches [USD,GBP,EUR,JPY,CNY] prices of the coinTicker paramater
  * @param {String} coinTicker
  * @returns An object with key value pairs of currency abbreviations and exchanged price/coin.
  */
@@ -11,24 +11,25 @@ async function fetchCoinPrices(coinTicker) {
   return pricesResponse;
 }
 
-/**
- *  Response properties
- * "total_market_cap_usd"
-    "total_24h_volume_usd"
-    "bitcoin_percentage_of_market_cap"
-    "active_currencies"
-    "active_assets"
-    "active_markets"
-    "last_updated"
- *
- * @returns An object containing global cryptocurrency information
- */
-async function fetchGlobalMarketData() {
-  const globalQuery = await fetch(`https://api.coinmarketcap.com/v1/global/`);
-  const marketData = await globalQuery.json();
-  return marketData;
+async function fetchNewsArticles() {
+  const newsQuery = await fetch(`https://min-api.cryptocompare.com/data/news/?lang=EN`);
+  const newsArticles = await newsQuery.json();
+  const firstSixArticles = newsArticles.slice(0, 6);
+  for (let i = 0; i < firstSixArticles.length; i++) {
+    const articleImage = document.querySelector(`[id=image${CSS.escape(i)}]`);
+    articleImage.src = `${firstSixArticles[i].imageurl}`;
+    const articleLink = document.querySelector(`[id=url${CSS.escape(i)}]`);
+    articleLink.href = `${firstSixArticles[i].url}`;
+    const articleTitle = document.querySelector(`[id=title${CSS.escape(i)}]`);
+    articleTitle.innerHTML = `${firstSixArticles[i].title}`;
+    const articleSource = document.querySelector(`[id=source${CSS.escape(i)}]`);
+    articleSource.innerHTML = `${firstSixArticles[i].source_info.name}`;
+    const articleContent = document.querySelector(`[id=content${CSS.escape(i)}]`);
+    const trimmedArticle = `${firstSixArticles[i].body.substring(0, 200)}.....`;
+    articleContent.innerHTML = `${trimmedArticle}`;
+  }
+  return firstSixArticles;
 }
-
 /**
  * Finds the product of the price per coin and input quantity then updates the DOM input element.
  */
@@ -42,21 +43,21 @@ async function calculatePrice() {
   }
   let currencySymbol = '';
   switch (inputCurrency) {
-    case 'USD':
-      currencySymbol = '$';
-      break;
-    case 'GBP':
-      currencySymbol = '£';
-      break;
-    case 'EUR':
-      currencySymbol = '€';
-      break;
-    case 'JPY':
-    case 'CNY':
-      currencySymbol = '¥';
-      break;
-    default:
-      break;
+  case 'USD':
+    currencySymbol = '$';
+    break;
+  case 'GBP':
+    currencySymbol = '£';
+    break;
+  case 'EUR':
+    currencySymbol = '€';
+    break;
+  case 'JPY':
+  case 'CNY':
+    currencySymbol = '¥';
+    break;
+  default:
+    break;
   }
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
   document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
@@ -70,8 +71,9 @@ async function calculatePrice() {
 /**
  * On page load calculate the price of the defaul values in the calculator input; BTC and 1
  */
-window.onload = function () {
+window.onload = function() {
   calculatePrice();
+  fetchNewsArticles();
 };
 
 const input = document.getElementById('inputCoinName');

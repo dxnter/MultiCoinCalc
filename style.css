@@ -28,6 +28,10 @@ h5 {
 h6 {
   color: #2b6d91 !important;
 }
+
+a {
+  text-decoration: none !important;
+}
 nav {
   padding: 20px;
   background-color: #333;
