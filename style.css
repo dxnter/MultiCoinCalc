@@ -71,7 +71,7 @@ select {
 #grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: minmax(100px, max-content);
+  grid-template-rows: minmax(200px, max-content);
   grid-gap: 50px;
   padding: 15px;
 }
