@@ -2,9 +2,21 @@ html * {
   font-family: 'Montserrat', sans-serif;
 }
 
+.body-content,
+.container {
+  background-color: #333;
+}
+
+.container {
+  padding-top: 50px;
+}
 h2 {
   font-weight: 900;
-  color: #1c1c1c;
+  color: white;
+}
+
+h2 > span {
+  color: orange;
 }
 
 h5 {
@@ -12,8 +24,35 @@ h5 {
   font-weight: 600;
 }
 nav {
-  margin-bottom: 50px;
   padding: 20px;
+  background-color: #333;
+}
+
+.navbar {
+  background-color: #191919 !important;
+  border-bottom: 2px solid orange;
+}
+
+a {
+  color: orange;
+}
+
+input,
+select {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.form-control:focus{
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+#fiatValue {
+  background-color: white;
+  color: #0c0;
+  font-weight: 600;
+  font-size: 1.5em;
 }
 
 #grid {
@@ -36,4 +75,9 @@ nav {
   left: 0;
   text-align: center;
   margin:0 auto;
+}
+
+.card {
+  border-radius: 0;
+  border: none;
 }

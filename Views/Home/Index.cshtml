@@ -11,9 +11,10 @@
               <input onkeyup="calculatePrice()" id="inputQuantity" type="number" class="form-control form-control-lg" placeholder="Quantity">
             </div>
           </div>
-          <div class="input-group">
-            <div class="input-group-prepend pr-1">
-              <select onchange="calculatePrice()" id="inputCurrency" class="form-control form-control-lg">
+          <div class="form-row">
+            <div class="form-group col-3 pr-2">
+              <div class="input-group-prepend pr-1">
+              <select onchange="calculatePrice()" id="inputCurrency" class="custom-select custom-select-lg">
                 <option value="USD">USD</option>
                 <option value="GBP">GBP</option>
                 <option value="EUR">EUR</option>
@@ -21,7 +22,10 @@
                 <option value="CNY">CNY</option>
               </select>
             </div>
-            <input id="fiatValue" type="text" class="form-control form-control-lg" placeholder="Value" readonly>
+            </div>
+            <div class="form-group col">
+            <input id="fiatValue" type="text" class="form-control form-control-lg text-center" readonly>
+            </div>
           </div>
           </div>
         </div>

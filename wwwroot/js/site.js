@@ -37,7 +37,9 @@ async function calculatePrice() {
   const inputCurrency = document.getElementById('inputCurrency').value;
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
   const { USD, GBP, EUR, JPY, CNY } = await fetchCoinPrices(inputCoinName.toUpperCase());
-  if (!inputQuantity || !inputCoinName || !inputCurrency) return;
+  if (!inputQuantity || !inputCoinName || !inputCurrency) {
+    document.getElementById('fiatValue').value = '';
+  }
   let currencySymbol = '';
   switch (inputCurrency) {
   case 'USD':
