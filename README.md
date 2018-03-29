@@ -1,5 +1,5 @@
 # MultiCoinCalc
-> Instant crypto to fiat <small>(USD, GBP, EUR, JPY, CNY)</small> price calculations
+> Instant crypto to fiat <small>(USD, GBP, EUR, JPY, CNY)</small> price calculations 💰
 
 **Features**
 
