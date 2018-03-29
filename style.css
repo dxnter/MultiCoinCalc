@@ -80,6 +80,7 @@ select {
   width: 100% !important;
   height: max-content !important;
   object-fit: cover !important;
+  zoom: 110%;
 }
 
 .navbar-brand{
