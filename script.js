@@ -42,21 +42,21 @@ async function calculatePrice() {
   }
   let currencySymbol = '';
   switch (inputCurrency) {
-  case 'USD':
-    currencySymbol = '$';
-    break;
-  case 'GBP':
-    currencySymbol = '£';
-    break;
-  case 'EUR':
-    currencySymbol = '€';
-    break;
-  case 'JPY':
-  case 'CNY':
-    currencySymbol = '¥';
-    break;
-  default:
-    break;
+    case 'USD':
+      currencySymbol = '$';
+      break;
+    case 'GBP':
+      currencySymbol = '£';
+      break;
+    case 'EUR':
+      currencySymbol = '€';
+      break;
+    case 'JPY':
+    case 'CNY':
+      currencySymbol = '¥';
+      break;
+    default:
+      break;
   }
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
   document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
@@ -70,7 +70,7 @@ async function calculatePrice() {
 /**
  * On page load calculate the price of the defaul values in the calculator input; BTC and 1
  */
-window.onload = function() {
+window.onload = function () {
   calculatePrice();
 };
 
