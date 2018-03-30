@@ -51,9 +51,6 @@ async function calculatePrice() {
   const inputCurrency = document.getElementById('inputCurrency').value;
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
   const { USD, GBP, EUR, JPY, CNY } = await fetchPrices(inputCoinName.toUpperCase());
-  if (!inputQuantity || !inputCoinName || !inputCurrency) {
-    document.getElementById('fiatValue').innterHTML = '';
-  }
   let currencySymbol = '';
   switch (inputCurrency) {
   case 'USD':
@@ -72,11 +69,18 @@ async function calculatePrice() {
   default:
     break;
   }
+  if (!inputCoinName) {
+    return document.getElementById('fiatValue').innerHTML = `${currencySymbol}0.00`;
+  }
   /**
    * eval(inputCurrency) will be interpreted as the *variable* that
    * was destructured from the API response on #53 which evaluates
    * to the price of one coin in a specific fiat currency. (ex: USD = 45.44)
    */
+  console.log(`inputCurrency // ${inputCurrency}`);
+  console.log(`eval(inputCurrency) // ${eval(inputCurrency)}`);
+  console.log(`inputQuantity // ${inputQuantity}`);
+
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
   document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
     undefined,
