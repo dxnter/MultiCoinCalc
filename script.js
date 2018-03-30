@@ -69,9 +69,6 @@ async function calculatePrice() {
   default:
     break;
   }
-  if (!inputCoinName) {
-    return document.getElementById('fiatValue').innerHTML = `${currencySymbol}0.00`;
-  }
   /**
    * eval(inputCurrency) will be interpreted as the *variable* that
    * was destructured from the API response on #53 which evaluates
@@ -82,12 +79,16 @@ async function calculatePrice() {
   console.log(`inputQuantity // ${inputQuantity}`);
 
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
-  document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
-    undefined,
-    {
-      minimumFractionDigits: 2,
-    }
-  )}`;
+  if (isNaN(calculatedTotal)) {
+    document.getElementById('fiatValue').innerHTML = `${currencySymbol}0.00`;
+  } else {
+    document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
+      undefined,
+      {
+        minimumFractionDigits: 2,
+      }
+    )}`;
+  }
 }
 
 window.onload = function() {
