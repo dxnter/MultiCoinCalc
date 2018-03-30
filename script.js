@@ -74,10 +74,6 @@ async function calculatePrice() {
    * was destructured from the API response on #53 which evaluates
    * to the price of one coin in a specific fiat currency. (ex: USD = 45.44)
    */
-  console.log(`inputCurrency // ${inputCurrency}`);
-  console.log(`eval(inputCurrency) // ${eval(inputCurrency)}`);
-  console.log(`inputQuantity // ${inputQuantity}`);
-
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
   if (isNaN(calculatedTotal)) {
     document.getElementById('fiatValue').innerHTML = `${currencySymbol}0.00`;
