@@ -51,9 +51,6 @@ async function calculatePrice() {
   const inputCurrency = document.getElementById('inputCurrency').value;
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
   const { USD, GBP, EUR, JPY, CNY } = await fetchPrices(inputCoinName.toUpperCase());
-  if (!inputQuantity || !inputCoinName || !inputCurrency) {
-    document.getElementById('fiatValue').innterHTML = '';
-  }
   let currencySymbol = '';
   switch (inputCurrency) {
   case 'USD':
@@ -77,24 +74,22 @@ async function calculatePrice() {
    * was destructured from the API response on #53 which evaluates
    * to the price of one coin in a specific fiat currency. (ex: USD = 45.44)
    */
+  console.log(`inputCurrency // ${inputCurrency}`);
+  console.log(`eval(inputCurrency) // ${eval(inputCurrency)}`);
+  console.log(`inputQuantity // ${inputQuantity}`);
+
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
-  document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
-    undefined,
-    {
-      minimumFractionDigits: 2,
-    }
-  )}`;
-}
-
-let first = document.getElementById('inputCoinName'),
-  second = document.getElementById('inputCoinQuantity');
-
-first.onkeydown = function(e) {
-  if (e.keyCode === 9) {
-    second.focus();
-    e.preventDefault();
+  if (isNaN(calculatedTotal)) {
+    document.getElementById('fiatValue').innerHTML = `${currencySymbol}0.00`;
+  } else {
+    document.getElementById('fiatValue').innerHTML = `${currencySymbol}${Number(calculatedTotal).toLocaleString(
+      undefined,
+      {
+        minimumFractionDigits: 2,
+      }
+    )}`;
   }
-};
+}
 
 window.onload = function() {
   calculatePrice();
