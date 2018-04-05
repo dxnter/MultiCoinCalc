@@ -2,6 +2,11 @@ html * {
   font-family: 'Montserrat', sans-serif;
 }
 
+nav {
+  padding: 20px;
+  background-color: #333;
+}
+
 .body-content,
 .container {
   background-color: #333;
@@ -31,10 +36,6 @@ h6 {
 
 a {
   text-decoration: none !important;
-}
-nav {
-  padding: 20px;
-  background-color: #333;
 }
 
 .navbar {
@@ -101,10 +102,4 @@ select {
   border: 1px solid orange;
   background: white;
   font-size: 22px;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }

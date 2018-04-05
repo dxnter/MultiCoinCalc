@@ -19,8 +19,8 @@ async function fetchPrices(coinTicker) {
  * DOM elements.
  */
 async function fetchNewsArticles() {
-  const newsQuery = await fetch(`https://min-api.cryptocompare.com/data/news/?lang=EN`);
-  const newsArticles = await newsQuery.json();
+  const rawNews = await fetch(`https://min-api.cryptocompare.com/data/news/?lang=EN`);
+  const newsArticles = await rawNews.json();
   const firstSixArticles = newsArticles.slice(0, 6);
   for (let i = 0; i < firstSixArticles.length; i++) {
     const articleImage = document.querySelector(`[id=image${CSS.escape(i)}]`);
@@ -72,7 +72,7 @@ async function calculatePrice() {
   /**
    * eval(inputCurrency) will be interpreted as the *variable* that
    * was destructured from the API response on #53 which evaluates
-   * to the price of one coin in a specific fiat currency. (ex: USD = 45.44)
+   * to the price of one coin in a specific fiat currencyt. (ex: USD = 45.44)
    */
   const calculatedTotal = eval(inputCurrency) * inputQuantity;
   if (isNaN(calculatedTotal)) {
@@ -87,6 +87,7 @@ async function calculatePrice() {
   }
 }
 
+/** On page load calculate the price of 1 BTC and fetch latest news */
 window.onload = function() {
   calculatePrice();
   fetchNewsArticles();
