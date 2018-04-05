@@ -7,7 +7,7 @@
 - Displays six of the latest news articles about cryptocurrencies from multiple sources.
 
 
-**Li₿raries**
+**Libraries**
 - [Awesomplete](https://leaverou.github.io/awesomplete/)
 ---
 
