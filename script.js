@@ -19,9 +19,9 @@ async function fetchPrices(coinTicker) {
  * DOM elements.
  */
 async function fetchNewsArticles() {
-  const rawNews = await fetch(`https://min-api.cryptocompare.com/data/news/?lang=EN`);
-  const newsArticles = await rawNews.json();
-  const firstSixArticles = newsArticles.slice(0, 6);
+  const firstSixArticles = await fetch(`https://min-api.cryptocompare.com/data/news/?lang=EN`)
+    .then(rawNews => rawNews.json())
+    .then(articles => articles.slice(0, 6));
   for (let i = 0; i < firstSixArticles.length; i++) {
     const articleImage = document.querySelector(`[id=image${CSS.escape(i)}]`);
     articleImage.src = `${firstSixArticles[i].imageurl}`;
@@ -35,7 +35,6 @@ async function fetchNewsArticles() {
     const articleSource = document.querySelector(`[id=source${CSS.escape(i)}]`);
     articleSource.innerHTML = `${firstSixArticles[i].source_info.name}`;
 
-    // The DOM element has an ID of content but the API resposne property is named 'body'
     const articleContent = document.querySelector(`[id=content${CSS.escape(i)}]`);
     const trimmedArticle = `${firstSixArticles[i].body.substring(0, 200)}.....`;
     Algorithmia.client('simPmagcHf0I9qEshPdFi2vrSiw1')
@@ -46,7 +45,6 @@ async function fetchNewsArticles() {
         articleContent.innerHTML = `${output.result}`;
       });
   }
-  return firstSixArticles;
 }
 
 /**
