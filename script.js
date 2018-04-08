@@ -36,13 +36,13 @@ async function fetchNewsArticles() {
     articleSource.innerHTML = `${firstSixArticles[i].source_info.name}`;
 
     const articleContent = document.querySelector(`[id=content${CSS.escape(i)}]`);
-    const trimmedArticle = `${firstSixArticles[i].body.substring(0, 200)}.....`;
+    const trimmedArticle = `${firstSixArticles[i].body.substring(0, 200)}`;
     Algorithmia.client('simPmagcHf0I9qEshPdFi2vrSiw1')
       .algo('nlp/Summarizer/0.1.7')
       .pipe(trimmedArticle)
       .then(output => {
         console.log(output);
-        articleContent.innerHTML = `${output.result}`;
+        articleContent.innerHTML = `${output.result}...`;
       });
   }
 }
