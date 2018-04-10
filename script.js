@@ -11,43 +11,6 @@ async function fetchFiatPrices(coinTicker) {
   return pricesResponse;
 }
 
-/*
- * @param {Array} Array of news article objects
- * Since our newsArticles array is zero indexed we utilize that by
- * incrementally giving each DOM element that index. (ex: id="title2")
- * With the ID binding the function will insert the data inside the
- * DOM elements.
- */
-function updateNewsCards(newsArticles) {
-  for (let i = 0; i < newsArticles.length; i++) {
-    const articleImage = document.querySelector(`[id=image${CSS.escape(i)}]`);
-    articleImage.src = `${newsArticles[i].imageurl}`;
-
-    const articleLink = document.querySelector(`[id=url${CSS.escape(i)}]`);
-    articleLink.href = `${newsArticles[i].url}`;
-
-    const articleTitle = document.querySelector(`[id=title${CSS.escape(i)}]`);
-    articleTitle.innerHTML = `${newsArticles[i].title}`;
-
-    const articleSource = document.querySelector(`[id=source${CSS.escape(i)}]`);
-    articleSource.innerHTML = `${newsArticles[i].source_info.name}`;
-
-    const articleContent = document.querySelector(`[id=content${CSS.escape(i)}]`);
-    const trimmedArticle = `${newsArticles[i].body.substring(0, 200)}`;
-    articleContent.textContent = `${trimmedArticle}...`;
-  }
-}
-
-/**
- * Fetches six of the latest news articles related to cryptocurrency.
- */
-async function fetchNewsArticles() {
-  const firstSixArticles = await fetch(`https://min-api.cryptocompare.com/data/news/?lang=EN`)
-    .then(rawNews => rawNews.json())
-    .then(articles => articles.slice(0, 6));
-  updateNewsCards(firstSixArticles);
-}
-
 /**
  * Finds the product of the price per coin and input quantity then updates the DOM input element.
  */
@@ -99,6 +62,43 @@ async function calculatePrice() {
       }
     )}`;
   }
+}
+
+/*
+ * @param {Array} Array of news article objects
+ * Since our newsArticles array is zero indexed we utilize that by
+ * incrementally giving each DOM element that index. (ex: id="title2")
+ * With the ID binding the function will insert the data inside the
+ * DOM elements.
+ */
+function updateNewsCards(newsArticles) {
+  for (let i = 0; i < newsArticles.length; i++) {
+    const articleImage = document.querySelector(`[id=image${CSS.escape(i)}]`);
+    articleImage.src = `${newsArticles[i].imageurl}`;
+
+    const articleLink = document.querySelector(`[id=url${CSS.escape(i)}]`);
+    articleLink.href = `${newsArticles[i].url}`;
+
+    const articleTitle = document.querySelector(`[id=title${CSS.escape(i)}]`);
+    articleTitle.innerHTML = `${newsArticles[i].title}`;
+
+    const articleSource = document.querySelector(`[id=source${CSS.escape(i)}]`);
+    articleSource.innerHTML = `${newsArticles[i].source_info.name}`;
+
+    const articleContent = document.querySelector(`[id=content${CSS.escape(i)}]`);
+    const trimmedArticle = `${newsArticles[i].body.substring(0, 200)}`;
+    articleContent.textContent = `${trimmedArticle}...`;
+  }
+}
+
+/**
+ * Fetches six of the latest news articles related to cryptocurrency.
+ */
+async function fetchNewsArticles() {
+  const firstSixArticles = await fetch(`https://min-api.cryptocompare.com/data/news/?lang=EN`)
+    .then(rawNews => rawNews.json())
+    .then(articles => articles.slice(0, 6));
+  updateNewsCards(firstSixArticles);
 }
 
 /* On page load calculate the price of 1 BTC and fetch latest news */
