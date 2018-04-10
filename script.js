@@ -1,3 +1,6 @@
+const inputCoinName = document.getElementById('inputCoinName').value;
+const inputCurrency = document.getElementById('inputCurrency').value;
+const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
 /*
  * Fetches [USD,GBP,EUR,JPY,CNY] prices of the coinTicker paramater
  * @param {String} coinTicker
@@ -5,19 +8,16 @@
  */
 async function fetchFiatPrices(coinTicker) {
   const prices = await fetch(
-    `https://min-api.cryptocompare.com/data/price?fsym=${coinTicker}&tsyms=USD,GBP,EUR,JPY,CNY`
+    `https://min-api.cryptocompsare.com/data/price?fsym=${coinTicker}&tsyms=USD,GBP,EUR,JPY,CNY`
   );
   const pricesResponse = await prices.json();
   return pricesResponse;
 }
 
-/**
+/*
  * Finds the product of the price per coin and input quantity then updates the DOM input element.
  */
 async function calculatePrice() {
-  const inputCoinName = document.getElementById('inputCoinName').value;
-  const inputCurrency = document.getElementById('inputCurrency').value;
-  const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
   const { USD, GBP, EUR, JPY, CNY } = await fetchFiatPrices(inputCoinName.toUpperCase());
   let currencySymbol = '';
   switch (inputCurrency) {
