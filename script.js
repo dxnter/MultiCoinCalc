@@ -3,7 +3,7 @@
  * @param {String} coinTicker
  * @returns An object with key value pairs of currency abbreviations and exchanged price/coin.
  */
-async function fetchPrices(coinTicker) {
+async function fetchFiatPrices(coinTicker) {
   const prices = await fetch(
     `https://min-api.cryptocompare.com/data/price?fsym=${coinTicker}&tsyms=USD,GBP,EUR,JPY,CNY`
   );
@@ -48,7 +48,7 @@ async function calculatePrice() {
   const inputCoinName = document.getElementById('inputCoinName').value;
   const inputCurrency = document.getElementById('inputCurrency').value;
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
-  const { USD, GBP, EUR, JPY, CNY } = await fetchPrices(inputCoinName.toUpperCase());
+  const { USD, GBP, EUR, JPY, CNY } = await fetchFiatPrices(inputCoinName.toUpperCase());
   let currencySymbol = '';
   switch (inputCurrency) {
   case 'USD':
