@@ -8,7 +8,7 @@ const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/
  */
 async function fetchFiatPrices(coinTicker) {
   const prices = await fetch(
-    `https://min-api.cryptocompsare.com/data/price?fsym=${coinTicker}&tsyms=USD,GBP,EUR,JPY,CNY`
+    `https://min-api.cryptocompare.com/data/price?fsym=${coinTicker}&tsyms=USD,GBP,EUR,JPY,CNY`
   );
   const pricesResponse = await prices.json();
   return pricesResponse;
