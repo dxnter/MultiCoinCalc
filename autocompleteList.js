@@ -2,105 +2,405 @@ const input = document.getElementById('inputCoinName');
 new Awesomplete(input, {
   autoFirst: true,
   list: [
-    { label: 'Bitcoin', value: 'BTC' },
-    { label: 'Ethereum', value: 'ETH' },
-    { label: 'Ripple', value: 'XRP' },
-    { label: 'Bitcoin Cash', value: 'BCH' },
-    { label: 'Litecoin', value: 'LTC' },
-    { label: 'EOS', value: 'EOS' },
-    { label: 'Cardano', value: 'ADA' },
-    { label: 'Stellar', value: 'XLM' },
-    { label: 'NEO', value: 'NEO' },
-    { label: 'IOTA', value: 'MIOTA' },
-    { label: 'Monero', value: 'XMR' },
-    { label: 'Dash', value: 'DASH' },
-    { label: 'TRON', value: 'TRX' },
-    { label: 'Tether', value: 'USDT' },
-    { label: 'NEM', value: 'XEM' },
-    { label: 'Ethereum Classic', value: 'ETC' },
-    { label: 'VeChain', value: 'VEN' },
-    { label: 'Qtum', value: 'QTUM' },
-    { label: 'Binance Coin', value: 'BNB' },
-    { label: 'ICON', value: 'ICX' },
-    { label: 'Lisk', value: 'LSK' },
-    { label: 'OmiseGO', value: 'OMG' },
-    { label: 'Bitcoin Gold', value: 'BTG' },
-    { label: 'Nano', value: 'NANO' },
-    { label: 'Zcash', value: 'ZEC' },
-    { label: 'DigixDAO', value: 'DGD' },
-    { label: 'Verge', value: 'XVG' },
-    { label: 'Populous', value: 'PPT' },
-    { label: 'Ontology', value: 'ONT' },
-    { label: 'Siacoin', value: 'SC' },
-    { label: 'Steem', value: 'STEEM' },
-    { label: 'Stratis', value: 'STRAT' },
-    { label: 'Bytecoin', value: 'BCN' },
-    { label: 'Waves', value: 'WAVES' },
-    { label: 'Bitcoin Diamond', value: 'BCD' },
-    { label: 'RChain', value: 'RHOC' },
-    { label: 'BitShares', value: 'BTS' },
-    { label: 'Bytom', value: 'BTM' },
-    { label: 'Maker', value: 'MKR' },
-    { label: 'Aeternity', value: 'AE' },
-    { label: 'Dodgecoin', value: 'DODGE' },
-    { label: 'Augur', value: 'REP' },
-    { label: '0x', value: 'ZRX' },
-    { label: 'Veritaseum', value: 'VERI' },
-    { label: 'Decred', value: 'DRC' },
-    { label: 'Waltonchain', value: 'WTC' },
-    { label: 'Status', value: 'SNT' },
-    { label: 'Zilliqa', value: 'ZIL' },
-    { label: 'Komodo', value: 'KMD' },
-    { label: 'Aion', value: 'AION' },
-    { label: 'Hshare', value: 'HSR' },
-    { label: 'Ardor', value: 'ARDA' },
-    { label: 'Ark', value: 'ARK' },
-    { label: 'Cryptonex', value: 'CNX' },
-    { label: 'Basic Attention Token', value: 'BAT' },
-    { label: 'PIVX', value: 'PIVX' },
-    { label: 'Loopring', value: 'LRC' },
-    { label: 'KuCoin Shares', value: 'KCS' },
-    { label: 'Factom', value: 'FCT' },
-    { label: 'Nebulas', value: 'NAS' },
-    { label: 'DigiByte', value: 'DGB' },
-    { label: 'Ethos', value: 'ETHOS' },
-    { label: 'QASH', value: 'QASH' },
-    { label: 'IOStoken', value: 'IOST' },
-    { label: 'MonaCoin', value: 'MONA' },
-    { label: 'Golem', value: 'GNT' },
-    { label: 'Gas', value: 'GAS' },
-    { label: 'Dragonchain', value: 'DRGN' },
-    { label: 'FunFair', value: 'FUN' },
-    { label: 'Revain', value: 'R' },
-    { label: 'GXChain', value: 'GXS' },
-    { label: 'Electroneum', value: 'ETN' },
-    { label: 'Syscoin', value: 'SYS' },
-    { label: 'Storm', value: 'STROM' },
-    { label: 'Kyber Network', value: 'KNC' },
-    { label: 'aelf', value: 'ELF' },
-    { label: 'Zcoin', value: 'XZC' },
-    { label: 'Request Network', value: 'REQ' },
-    { label: 'Substratum', value: 'SUB' },
-    { label: 'SALT', value: 'SALT' },
-    { label: 'Neblio', value: 'NEBL' },
-    { label: 'Kin', value: 'KIN' },
-    { label: 'Nxt', value: 'NXT' },
-    { label: 'ReddCoin', value: 'RDD' },
-    { label: 'Nucleus Vision', value: 'NCASH' },
-    { label: 'Emercoin', value: 'EMC' },
-    { label: 'Enigma', value: 'ENG' },
-    { label: 'Byteball Bytes', value: 'GBYTE' },
-    { label: 'ChainLink', value: 'LINK' },
-    { label: 'MaidSafeCoin', value: 'MAID' },
-    { label: 'Power Ledger', value: 'POWR' },
-    { label: 'TenX', value: 'PAY' },
-    { label: 'Dentacoin', value: 'DCN' },
-    { label: 'Dent', value: 'DENT' },
-    { label: 'Mithril', value: 'MITH' },
-    { label: 'Bancor', value: 'BTN' },
-    { label: 'Cindicator', value: 'CND' },
-    { label: 'Metal', value: ',MTL' },
-    { label: 'Nuls', value: 'NULS' },
-    { label: 'Particl', value: 'PART' },
+    {
+      label: 'Bitcoin',
+      value: 'BTC',
+    },
+    {
+      label: 'Ethereum',
+      value: 'ETH',
+    },
+    {
+      label: 'Ripple',
+      value: 'XRP',
+    },
+    {
+      label: 'Bitcoin Cash',
+      value: 'BCH',
+    },
+    {
+      label: 'EOS',
+      value: 'EOS',
+    },
+    {
+      label: 'Litecoin',
+      value: 'LTC',
+    },
+    {
+      label: 'Cardano',
+      value: 'ADA',
+    },
+    {
+      label: 'Stellar',
+      value: 'XLM',
+    },
+    {
+      label: 'NEO',
+      value: 'NEO',
+    },
+    {
+      label: 'IOTA',
+      value: 'MIOTA',
+    },
+    {
+      label: 'Monero',
+      value: 'XMR',
+    },
+    {
+      label: 'Dash',
+      value: 'DASH',
+    },
+    {
+      label: 'TRON',
+      value: 'TRX',
+    },
+    {
+      label: 'NEM',
+      value: 'XEM',
+    },
+    {
+      label: 'Tether',
+      value: 'USDT',
+    },
+    {
+      label: 'VeChain',
+      value: 'VEN',
+    },
+    {
+      label: 'Ethereum Classic',
+      value: 'ETC',
+    },
+    {
+      label: 'Binance Coin',
+      value: 'BNB',
+    },
+    {
+      label: 'OmiseGO',
+      value: 'OMG',
+    },
+    {
+      label: 'Qtum',
+      value: 'QTUM',
+    },
+    {
+      label: 'Verge',
+      value: 'XVG',
+    },
+    {
+      label: 'Ontology',
+      value: 'ONT',
+    },
+    {
+      label: 'Lisk',
+      value: 'LSK',
+    },
+    {
+      label: 'ICON',
+      value: 'ICX',
+    },
+    {
+      label: 'Bytom',
+      value: 'BTM',
+    },
+    {
+      label: 'Zcash',
+      value: 'ZEC',
+    },
+    {
+      label: 'Steem',
+      value: 'STEEM',
+    },
+    {
+      label: 'Nano',
+      value: 'NANO',
+    },
+    {
+      label: 'Bitcoin Gold',
+      value: 'BTG',
+    },
+    {
+      label: 'Wanchain',
+      value: 'WAN',
+    },
+    {
+      label: 'Bitcoin Private',
+      value: 'BTCP',
+    },
+    {
+      label: 'Bytecoin',
+      value: 'BCN',
+    },
+    {
+      label: 'Populous',
+      value: 'PPT',
+    },
+    {
+      label: 'BitShares',
+      value: 'BTS',
+    },
+    {
+      label: 'DigixDAO',
+      value: 'DGD',
+    },
+    {
+      label: 'Siacoin',
+      value: 'SC',
+    },
+    {
+      label: 'Stratis',
+      value: 'STRAT',
+    },
+    {
+      label: 'RChain',
+      value: 'RHOC',
+    },
+    {
+      label: 'Dogecoin',
+      value: 'DOGE',
+    },
+    {
+      label: 'Decred',
+      value: 'DCR',
+    },
+    {
+      label: 'Waves',
+      value: 'WAVES',
+    },
+    {
+      label: 'Zilliqa',
+      value: 'ZIL',
+    },
+    {
+      label: 'Maker',
+      value: 'MKR',
+    },
+    {
+      label: 'Aeternity',
+      value: 'AE',
+    },
+    {
+      label: 'Bitcoin Diamond',
+      value: 'BCD',
+    },
+    {
+      label: 'Status',
+      value: 'SNT',
+    },
+    {
+      label: '0x',
+      value: 'ZRX',
+    },
+    {
+      label: 'Loopring',
+      value: 'LRC',
+    },
+    {
+      label: 'Komodo',
+      value: 'KMD',
+    },
+    {
+      label: 'Aion',
+      value: 'AION',
+    },
+    {
+      label: 'Hshare',
+      value: 'HSR',
+    },
+    {
+      label: 'Augur',
+      value: 'REP',
+    },
+    {
+      label: 'KuCoin Shares',
+      value: 'KCS',
+    },
+    {
+      label: 'Ardor',
+      value: 'ARDR',
+    },
+    {
+      label: 'IOStoken',
+      value: 'IOST',
+    },
+    {
+      label: 'Waltonchain',
+      value: 'WTC',
+    },
+    {
+      label: 'Ark',
+      value: 'ARK',
+    },
+    {
+      label: 'aelf',
+      value: 'ELF',
+    },
+    {
+      label: 'DigiByte',
+      value: 'DGB',
+    },
+    {
+      label: 'Cryptonex',
+      value: 'CNX',
+    },
+    {
+      label: 'PIVX',
+      value: 'PIVX',
+    },
+    {
+      label: 'Golem',
+      value: 'GNT',
+    },
+    {
+      label: 'Basic Attention Token',
+      value: 'BAT',
+    },
+    {
+      label: 'Factom',
+      value: 'FCT',
+    },
+    {
+      label: 'Centrality',
+      value: 'CENNZ',
+    },
+    {
+      label: 'QASH',
+      value: 'QASH',
+    },
+    {
+      label: 'MonaCoin',
+      value: 'MONA',
+    },
+    {
+      label: 'Substratum',
+      value: 'SUB',
+    },
+    {
+      label: 'Mithril',
+      value: 'MITH',
+    },
+    {
+      label: 'Dragonchain',
+      value: 'DRGN',
+    },
+    {
+      label: 'Veritaseum',
+      value: 'VERI',
+    },
+    {
+      label: 'Nebulas',
+      value: 'NAS',
+    },
+    {
+      label: 'Elastos',
+      value: 'ELA',
+    },
+    {
+      label: 'Gas',
+      value: 'GAS',
+    },
+    {
+      label: 'Mixin',
+      value: 'XIN',
+    },
+    {
+      label: 'Ethos',
+      value: 'ETHOS',
+    },
+    {
+      label: 'GXChain',
+      value: 'GXS',
+    },
+    {
+      label: 'Kyber Network',
+      value: 'KNC',
+    },
+    {
+      label: 'FunFair',
+      value: 'FUN',
+    },
+    {
+      label: 'Syscoin',
+      value: 'SYS',
+    },
+    {
+      label: 'Electroneum',
+      value: 'ETN',
+    },
+    {
+      label: 'Byteball Bytes',
+      value: 'GBYTE',
+    },
+    {
+      label: 'Nxt',
+      value: 'NXT',
+    },
+    {
+      label: 'Revain',
+      value: 'R',
+    },
+    {
+      label: 'ReddCoin',
+      value: 'RDD',
+    },
+    {
+      label: 'Skycoin',
+      value: 'SKY',
+    },
+    {
+      label: 'SALT',
+      value: 'SALT',
+    },
+    {
+      label: 'MaidSafeCoin',
+      value: 'MAID',
+    },
+    {
+      label: 'Power Ledger',
+      value: 'POWR',
+    },
+    {
+      label: 'ZCoin',
+      value: 'XZC',
+    },
+    {
+      label: 'Nucleus Vision',
+      value: 'NCASH',
+    },
+    {
+      label: 'Bancor',
+      value: 'BNT',
+    },
+    {
+      label: 'ChainLink',
+      value: 'LINK',
+    },
+    {
+      label: 'Storm',
+      value: 'STORM',
+    },
+    {
+      label: 'Neblio',
+      value: 'NEBL',
+    },
+    {
+      label: 'WAX',
+      value: 'WAX',
+    },
+    {
+      label: 'Enigma',
+      value: 'ENG',
+    },
+    {
+      label: 'Storj',
+      value: 'STORJ',
+    },
+    {
+      label: 'TenX',
+      value: 'PAY',
+    },
+    {
+      label: 'Request Network',
+      value: 'REQ',
+    },
   ],
 });

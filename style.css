@@ -1,32 +1,32 @@
 html * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+html {
+  position: relative;
+  min-height: 90%;
+  overflow-y:hidden;
 }
 
 nav {
   padding: 20px;
-  background-color: #333;
-}
-
-.body-content,
-.container {
-  background-color: #333;
 }
 
 .container {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin-top: 250px;
 }
 h2 {
-  font-weight: 900;
+  font-weight: 700;
+  font-size: 40px;
   color: white;
 }
 
 h2 > span {
-  color: orange;
+  color: #0c0;
 }
 
 h5 {
-  color: orange;
+  color: #0c0;
   font-weight: 600;
 }
 
@@ -39,18 +39,30 @@ a {
 }
 
 .navbar {
-  background-color: #191919 !important;
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid #0c0;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+.navbar-brand span {
+  color: #0c0;
 }
 
 a {
-  color: orange;
+  color: #0c0;
+}
+
+input[type="text"],
+.input-group-text {
+  font-size: 40px !important;
 }
 
 input,
 select {
   border-radius: 0 !important;
-  border-bottom: 2px solid orange !important;
+  border-bottom: 2px solid #0c0 !important;
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
@@ -61,45 +73,32 @@ select {
   box-shadow: none;
 }
 
-#fiatValue {
+#equals {
+  font-weight: 600;
+  font-size: 40px;
+}
+
+#fiatValue,
+.input-group-text {
   background-color: white;
   color: #0c0;
   font-weight: 600;
-  font-size: 1.5em;
   overflow: hidden;
-}
-
-#grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: minmax(200px, max-content);
-  grid-gap: 50px;
-  padding: 15px;
-}
-
-.card-img-top {
-  width: 100% !important;
-  height: max-content !important;
-  object-fit: cover !important;
-  zoom: 110%;
-}
-
-.navbar-brand{
-  position: absolute;
-  width: 100%;
-  left: 0;
-  text-align: center;
-  margin:0 auto;
-}
-
-.card {
-  border-radius: 0;
   border: none;
 }
 
 .awesomplete > ul {
   border-radius: 0 !important;
-  border: 1px solid orange;
+  border: 1px solid #0c0;
   background: white;
   font-size: 22px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 60px;
+  background-color: #f5f5f5;
 }

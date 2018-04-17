@@ -6,124 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MultiCoinCalc</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Multi
+    <span>Coin</span>Calc</a>
+  <form class="form-inline">
+    <select onchange="calculatePrice()" id="inputCurrency" class="custom-select custom-select-lg">
+      <option value="USD">$</option>
+      <option value="GBP">£</option>
+      <option value="EUR">€</option>
+      <option value="JPY">¥ (JPY)</option>
+      <option value="CNY">¥ (CNY)</option>
+    </select>
+  </form>
+</nav>
+
 <body>
-  <nav class="navbar pb-4 pt-5">
-    <a class="navbar-brand pb-3" href="#">
-      <h2>Multi<span>Coin</span>Calc</h2>
-    </a>
-  </nav>
+  <div class="container">
+    <div class="row text-center justify-content-center">
+      <div class="col-xs-12 col-md-6 my-auto">
+        <input onkeyup="calculatePrice()" onclick="calculatePrice()" id="inputQuantity" type="text" value="1" class="form-control form-control-lg text-center"
+          placeholder="Quantity" autocomplete="off">
+        <input onkeyup="calculatePrice()" onclick="calculatePrice(), this.select()" id="inputCoinName" type="text" value="BTC" class="form-control form-control-lg text-center awesomplete"
+          placeholder="Coin Name" autocomplete="off">
+        <span id="equals" class="text-center">=</span>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span id="currencySymbol" class="input-group-text">$</span>
+          </div>
+          <input id="fiatValue" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <div class="body-content">
+  <footer class="footer">
     <div class="container">
-      <div class="row text-center justify-content-center">
-        <div class="col">
-          <div class="card box-shadow">
-            <div class="card-body">
-              <div class="form-row">
-                <div class="form-group col">
-                  <input onkeyup="calculatePrice()" onclick="calculatePrice()" id="inputCoinName" type="text" onfocus="this.value = ''" value="BTC"
-                    class="form-control form-control-lg text-center awesomplete" placeholder="Coin Name" autocomplete="off">
-                </div>
-                <div class="form-group col">
-                  <input onkeyup="calculatePrice()" onclick="calculatePrice()" id="inputQuantity" type="number" onfocus="this.value=''" value="1"
-                    class="form-control form-control-lg text-center" placeholder="Quantity" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col">
-                  <select onchange="calculatePrice()" id="inputCurrency" class="custom-select custom-select-lg">
-                    <option value="USD">USD</option>
-                    <option value="GBP">GBP</option>
-                    <option value="EUR">EUR</option>
-                    <option value="JPY">JPY</option>
-                    <option value="CNY">CNY</option>
-                  </select>
-                </div>
-                <div class="form-group col">
-                  <div id="fiatValue"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- News Feed -->
-      <div class="row justify-content-center mt-5">
-        <div id="grid">
-          <div id="0" class="card">
-            <img id="image0" class="card-img-top">
-            <div class="card-body">
-              <a id="url0" href="" target="_blank">
-                <h5 id="title0" class="card-title"></h5>
-              </a>
-              <h6 id="source0" class=" card-subtitle mb-3"></h6>
-              <p id="content0"></p>
-            </div>
-          </div>
-          <div id="1" class="card">
-            <img id="image1" class="card-img-top">
-            <div class="card-body">
-              <a id="url1" href="" target="_blank">
-                <h5 id="title1" class="card-title"></h5>
-              </a>
-              <h6 id="source1" class=" card-subtitle mb-3"></h6>
-              <p id="content1"></p>
-            </div>
-          </div>
-          <div id="2" class="card">
-            <img id="image2" class="card-img-top">
-            <div class="card-body">
-              <a id="url2" href="" target="_blank">
-                <h5 id="title2" class="card-title"></h5>
-              </a>
-              <h6 id="source2" class=" card-subtitle mb-3"></h6>
-              <p id="content2"></p>
-            </div>
-          </div>
-          <div id="3" class="card">
-            <img id="image3" class="card-img-top">
-            <div class="card-body">
-              <a id="url3" href="" target="_blank">
-                <h5 id="title3" class="card-title"></h5>
-              </a>
-              <h6 id="source3" class=" card-subtitle mb-3"></h6>
-              <p id="content3"></p>
-            </div>
-          </div>
-          <div id="4" class="card">
-            <img id="image4" class="card-img-top">
-            <div class="card-body">
-              <a id="url4" href="" target="_blank">
-                <h5 id="title4" class="card-title"></h5>
-              </a>
-              <h6 id="source4" class=" card-subtitle mb-3"></h6>
-              <p id="content4"></p>
-            </div>
-          </div>
-          <div id="5" class="card">
-            <img id="image5" class="card-img-top">
-            <div class="card-body">
-              <a id="url5" href="" target="_blank">
-                <h5 id="title5" class="card-title"></h5>
-              </a>
-              <h6 id="source5" class=" card-subtitle mb-3"></h6>
-              <p id="content5"></p>
-            </div>
-          </div>
-        </div>
-      </div>
       <a class="github-button" href="https://github.com/dxnter/MultiCoinCalc" data-show-count="true" aria-label="Star dxnter/MultiCoinCalc on GitHub">Star</a>
     </div>
+  </footer>
 
-  </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
