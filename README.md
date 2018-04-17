@@ -9,7 +9,6 @@
 
 **Libraries**
 - [Awesomplete](https://leaverou.github.io/awesomplete/)
-- [Algorithmia](https://algorithmia.com/)
 ---
 
 ## Team
