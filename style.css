@@ -17,10 +17,6 @@ h2 {
   color: white;
 }
 
-h2 > span {
-  color: #0c0;
-}
-
 h5 {
   color: #0c0;
   font-weight: 600;
@@ -52,7 +48,7 @@ a {
 
 input[type="text"],
 .input-group-text {
-  font-size: 40px !important;
+  font-size: 30px !important;
 }
 
 input,
@@ -69,9 +65,21 @@ select {
   box-shadow: none;
 }
 
+#inputQuantity {
+  width: 200px;
+}
+
+#inputCoinName {
+  width: 300px;
+}
+
+#fiatValue {
+  width: 250px;
+}
+
 #equals {
   font-weight: 600;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #fiatValue,

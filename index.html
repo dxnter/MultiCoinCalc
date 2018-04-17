@@ -14,8 +14,9 @@
 </head>
 
 <nav class="navbar navbar-light bg-light justify-content-between">
-  <a class="navbar-brand">Multi
-    <span>Coin</span>Calc</a>
+  <a class="navbar-brand">
+    Multi<span>Coin</span>Calc
+  </a>
   <form class="form-inline">
     <select onchange="calculatePrice()" id="inputCurrency" class="custom-select custom-select-lg">
       <option value="USD">$</option>
@@ -30,17 +31,17 @@
 <body>
   <div class="container">
     <div class="row text-center justify-content-center">
-      <div class="col-xs-12 col-md-6">
-        <input onkeyup="calculatePrice()" onclick="calculatePrice()" id="inputQuantity" type="text" value="1" class="form-control form-control-lg text-center"
+      <div class="col justify-content-center form-inline">
+        <input onkeyup="calculatePrice()" id="inputQuantity" type="text" value="1" class="form-control form-control-lg text-center"
           placeholder="Quantity" autocomplete="off">
-        <input onkeyup="calculatePrice()" onclick="calculatePrice(), this.select()" id="inputCoinName" type="text" value="BTC" class="form-control form-control-lg text-center awesomplete"
+        <input onkeyup="calculatePrice()" onclick="this.select()" id="inputCoinName" type="text" value="BTC" class="form-control form-control-lg text-center awesomplete"
           placeholder="Coin Name" autocomplete="off">
         <span id="equals" class="text-center">=</span>
         <div class="input-group">
           <div class="input-group-prepend">
             <span id="currencySymbol" class="input-group-text">$</span>
           </div>
-          <input id="fiatValue" type="text" class="form-control text-center">
+          <input id="fiatValue" type="text" class="form-control">
         </div>
       </div>
     </div>

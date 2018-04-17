@@ -7,7 +7,7 @@
 const fetchFiatPrice = (coinTicker, inputCurrency) => {
   return fetch(`https://min-api.cryptocompare.com/data/price?fsym=${coinTicker}&tsyms=${inputCurrency}`)
     .then(data => data.json())
-    .then(price => Object.values(price)[0])
+    .then(price => Object.values(price)[0]);
 }
 
 /*
@@ -15,25 +15,26 @@ const fetchFiatPrice = (coinTicker, inputCurrency) => {
  */
 
 async function calculatePrice() {
-  const inputCoinName = document.getElementById('inputCoinName').value;
+  const inputCoinName = document.getElementById('inputCoinName').value.toUpperCase();
+
   const inputCurrency = document.getElementById('inputCurrency');
   const fiatCode = inputCurrency.value;
   const currencySymbol = inputCurrency.options[inputCurrency.selectedIndex].text;
   document.getElementById('currencySymbol').textContent = currencySymbol.slice(0, 1);
-  const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
 
-  const coinPrice = await fetchFiatPrice(inputCoinName.toUpperCase(), fiatCode);
-  const calculatedTotal = coinPrice * inputQuantity;
-  if (isNaN(calculatedTotal)) {
-    document.getElementById('fiatValue').value = '0.00';
-  } else {
-    document.getElementById('fiatValue').value = `${Number(calculatedTotal).toLocaleString(
-      undefined,
-      {
-        minimumFractionDigits: 2,
-      }
-    )}`;
+  const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
+  if (isNaN(inputQuantity)) {
+    return document.getElementById('fiatValue').value = '0.00';
   }
+  const coinPrice = await fetchFiatPrice(inputCoinName, fiatCode);
+  console.log(coinPrice);
+  const calculatedTotal = coinPrice * inputQuantity;
+  document.getElementById('fiatValue').value = `${Number(calculatedTotal).toLocaleString(
+    undefined,
+    {
+      minimumFractionDigits: 2,
+    }
+  )}`;
 }
 
 /* On page load calculate the price of 1 BTC */

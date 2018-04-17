@@ -403,4 +403,9 @@ new Awesomplete(input, {
       value: 'REQ',
     },
   ],
+
+});
+
+document.getElementById('inputCoinName').addEventListener('awesomplete-selectcomplete',function(){
+  calculatePrice();
 });
