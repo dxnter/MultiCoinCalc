@@ -19,7 +19,7 @@ async function calculatePrice() {
   const inputCurrency = document.getElementById('inputCurrency');
   const fiatCode = inputCurrency.value;
   const currencySymbol = inputCurrency.options[inputCurrency.selectedIndex].text;
-  document.getElementById('currencySymbol').textContent = currencySymbol.slice(0,1);
+  document.getElementById('currencySymbol').textContent = currencySymbol.slice(0, 1);
   const inputQuantity = document.getElementById('inputQuantity').value.replace(/,/g, '');
 
   const coinPrice = await fetchFiatPrice(inputCoinName.toUpperCase(), fiatCode);

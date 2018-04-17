@@ -14,7 +14,8 @@
 </head>
 
 <nav class="navbar navbar-light bg-light justify-content-between">
-  <a class="navbar-brand">Multi<span>Coin</span>Calc</a>
+  <a class="navbar-brand">Multi
+    <span>Coin</span>Calc</a>
   <form class="form-inline">
     <select onchange="calculatePrice()" id="inputCurrency" class="custom-select custom-select-lg">
       <option value="USD">$</option>
@@ -29,7 +30,7 @@
 <body>
   <div class="container">
     <div class="row text-center justify-content-center">
-      <div class="col-xs-12 col-md-6 my-auto">
+      <div class="col-xs-12 col-md-6">
         <input onkeyup="calculatePrice()" onclick="calculatePrice()" id="inputQuantity" type="text" value="1" class="form-control form-control-lg text-center"
           placeholder="Quantity" autocomplete="off">
         <input onkeyup="calculatePrice()" onclick="calculatePrice(), this.select()" id="inputCoinName" type="text" value="BTC" class="form-control form-control-lg text-center awesomplete"
@@ -39,17 +40,11 @@
           <div class="input-group-prepend">
             <span id="currencySymbol" class="input-group-text">$</span>
           </div>
-          <input id="fiatValue" type="text" class="form-control">
+          <input id="fiatValue" type="text" class="form-control text-center">
         </div>
       </div>
     </div>
   </div>
-
-  <footer class="footer">
-    <div class="container">
-      <a class="github-button" href="https://github.com/dxnter/MultiCoinCalc" data-show-count="true" aria-label="Star dxnter/MultiCoinCalc on GitHub">Star</a>
-    </div>
-  </footer>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
